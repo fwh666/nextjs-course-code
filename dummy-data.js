@@ -31,6 +31,27 @@ const DUMMY_EVENTS = [
   },
 ];
 
+export function getFeaturedEvents() {
+  return DUMMY_EVENTS.filter((event) => event.isFeatured);
+}
+
 export function getAllEvents() {
   return DUMMY_EVENTS;
+}
+
+export function getFilteredEvents(dateFilter) {
+  const { year, month } = dateFilter;
+  // fwh-过滤出符合时间年月条件的数据， 注意从零索引下标开始计算月份
+  let filteredEvents = DUMMY_EVENTS.filter((event) => {
+    const eventDate = new Date(event.date);
+    return (
+      eventDate.getFullYear() === year && eventDate.getMonth() === month - 1
+    );
+  });
+
+  return filteredEvents;
+}
+
+export function getEventById(id) {
+  return DUMMY_EVENTS.find((event) => event.id === id);
 }
