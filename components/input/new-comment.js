@@ -28,6 +28,7 @@ function NewComment(props) {
       return;
     }
 
+    //fwh-将构参的数据放入对应字段当中.
     props.onAddComment({
       email: enteredEmail,
       name: enteredName,

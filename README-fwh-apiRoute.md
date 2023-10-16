@@ -11,5 +11,6 @@
 
 
 # 编码操作:
-1. 首页-评论页面
-2. 
+1. 首页-邮箱注册页面: NewsletterRegistration
+2. 评论详情页面:  EventDetailPage
+    2.1 插入和读取评论数据

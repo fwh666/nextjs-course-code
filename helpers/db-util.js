@@ -11,8 +11,14 @@ export async function connectDatabase() {
 
 export async function insertDocument(client, collection, document) {
   const db = client.db();
-  const result = await db.collection(collection).insertOn(document);//选择集合库, 插入数据
+  const result = await db.collection(collection).insertOn(document); //选择集合库, 插入数据
   return result;
 }
 
-export default connectDatabase;
+export async function getAllDocuments(client, collection, sort) {
+  const db = client.db();
+  //排序获取db的数据信息输出数组形式
+  const documents = await db.collection(collection).find().sort(sort).toArray();
+
+  return documents;
+}
