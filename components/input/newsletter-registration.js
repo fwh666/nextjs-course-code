@@ -6,7 +6,8 @@ function NewsletterRegistration() {
 
   function registrationHandler(event) {
     event.preventDefault();
-
+    // console.log(emailInputRef.current.value);
+    const enteredEmail = emailInputRef.current.value;
     // fetch user input (state or refs)
     // optional: validate input
     // send valid data to API
@@ -14,9 +15,9 @@ function NewsletterRegistration() {
     fetch("/api/newsletter", {
       //路径会调用pages目录api目录下的newletter.js
       method: "POST",
-      body: JSON.stringify({ email: emailInputRef }), //json处理赋值到email中
+      body: JSON.stringify({ email: enteredEmail }), //json处理赋值到email中
       headers: {
-        "Content-Tpye": "application/json",
+        "Content-Type": "application/json",
       },
     })
       .then((response) => response.json())

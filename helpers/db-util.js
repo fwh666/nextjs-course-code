@@ -4,14 +4,15 @@ import { MongoClient } from "mongodb";
 export async function connectDatabase() {
   //链接url 用户名和密码
   const client = await MongoClient.connect(
-    "mongodb+srv://maximilian:8ZO3ycZqJ23kWBQx@cluster0.ntrwp.mongodb.net/events?retryWrites=true&w=majority"
+    // "mongodb+srv://maximilian:8ZO3ycZqJ23kWBQx@cluster0.ntrwp.mongodb.net/events?retryWrites=true&w=majority"
+    "mongodb+srv://fwh_nextjs:bZPSiyWP1giE6JWf@cluster0.o1vxc4o.mongodb.net/events?retryWrites=true&w=majority"
   );
   return client;
 }
 
 export async function insertDocument(client, collection, document) {
   const db = client.db();
-  const result = await db.collection(collection).insertOn(document); //选择集合库, 插入数据
+  const result = await db.collection(collection).insertOne(document); //选择集合库, 插入数据
   return result;
 }
 

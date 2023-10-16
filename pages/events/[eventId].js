@@ -38,6 +38,7 @@ function EventDetailPage(props) {
       <EventContent>
         <p>{event.description}</p>
       </EventContent>
+      {/* fwh-根据URL路径确认请求的js文件。此处添加评论功能js */}
       <Comments eventId={event.id} />
     </Fragment>
   );
