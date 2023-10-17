@@ -5,7 +5,6 @@ import classes from "./post-header.module.css";
 function PostHeader(props) {
   const { title, image } = props;
   // 定义图片尺寸大小
-  console.log("PostHeader-image", image);
   return (
     <header className={classes.header}>
       <h1>{title}</h1>

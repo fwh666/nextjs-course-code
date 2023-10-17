@@ -26,7 +26,7 @@ function PostContent(props) {
     p(paragraph) {
       const { node } = paragraph;
 
-      if (node.children[0].tagName === "img") {
+      if (node.children[0].tagName === 'img') {
         const image = node.children[0];
 
         return (
@@ -46,7 +46,7 @@ function PostContent(props) {
 
     code(code) {
       const { className, children } = code;
-      const language = className.split("-")[1]; // className is something like language-js => We need the "js" part here
+      const language = className.split('-')[1]; // className is something like language-js => We need the "js" part here
       return (
         <SyntaxHighlighter
           style={atomDark}
@@ -58,10 +58,11 @@ function PostContent(props) {
   };
 
   return (
-    // Markdown形式的文章解析
-    <article>
-      <PostHeader title={post.title} image={post.image}></PostHeader>
+    <article className={classes.content}>
+      <PostHeader title={post.title} image={imagePath} />
       <ReactMarkdown components={customRenderers}>{post.content}</ReactMarkdown>
     </article>
   );
 }
+
+export default PostContent;
