@@ -24,7 +24,13 @@
     - 解析文章数据: [slug].js 代表不同名字的文章
         - getStaticProps函数: 提前获取数据,填充到组件的参数当中
         - getStaticPath函数:
-    - 
+    - 解析文章内容详情数据:PostContent
+        - Markdown解析文章
+        - 引用: react-markdown, react-syntax-higlighter
+        - 内容解析添加主题以及高亮
+        - 解析: p(paragraph) {}
+        - todo-fwh-需要重点理解解析代码的含义
+
 4. 联系方式处理:
     - 表单样式
     - 数据交互

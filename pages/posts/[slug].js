@@ -10,6 +10,7 @@ function PostDeatailPage(props) {
       <Head>
         <title>{props.post.title}</title>
       </Head>
+      {/* 文章正文组件 */}
       <PostContent post={props.post} />
     </Fragment>
   );
