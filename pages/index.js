@@ -1,23 +1,34 @@
-import Hero from "../components/home-page/hero";
-import FeaturedPost from "../components/home-page/featured-posts";
-import { getFeaturedPosts } from "../lib/posts-util";
+import { Fragment } from 'react';
+import Head from 'next/head';
+
+import FeaturedPosts from '../components/home-page/featured-posts';
+import Hero from '../components/home-page/hero';
+import { getFeaturedPosts } from '../lib/posts-util';
+
 function HomePage(props) {
   return (
-    <div>
-      this is HomePage; Hero page; Posts page;
+    <Fragment>
+      <Head>
+        <title>Max' Blog</title>
+        <meta
+          name='description'
+          content='I post about programming and web development.'
+        />
+      </Head>
       <Hero />
-      <FeaturedPost posts={props.posts} />
-    </div>
+      <FeaturedPosts posts={props.posts} />
+    </Fragment>
   );
 }
-export default HomePage;
 
-//todo-fwh-获取post文章数据并填充到页面
-export function getStaticsProps() {
+export function getStaticProps() {
   const featuredPosts = getFeaturedPosts();
+
   return {
     props: {
       posts: featuredPosts,
     },
   };
 }
+
+export default HomePage;

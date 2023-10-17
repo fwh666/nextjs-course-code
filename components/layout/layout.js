@@ -1,13 +1,14 @@
-import { Fragement } from "react";
-import MainNavigation from "./main-navigation";
+import { Fragment } from 'react';
+
+import MainNavigation from './main-navigation';
 
 function Layout(props) {
   // 分组件使用, 导航页和子数据传递
   return (
-    <Fragement>
-      <MainNavigation></MainNavigation>
-      <main> {props.children}</main>
-    </Fragement>
+    <Fragment>
+      <MainNavigation />
+      <main>{props.children}</main>
+    </Fragment>
   );
 }
 export default Layout;
