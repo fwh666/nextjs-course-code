@@ -75,8 +75,33 @@ function ContactForm() {
       setRequestError(error.message);
       setRequestStatus('error');
     }
-    
-  }
+
+    //全局通知数据处理-不同状态赋值不同的消息通知
+    let notification;
+    if (requestStatus === 'pending') {
+      notification = {
+        status: 'pending',
+        title: 'Sending message...',
+        message: 'Your message is on its way!',
+      };
+    }
+  
+    if (requestStatus === 'success') {
+      notification = {
+        status: 'success',
+        title: 'Success!',
+        message: 'Message sent successfully!',
+      };
+    }
+  
+    if (requestStatus === 'error') {
+      notification = {
+        status: 'error',
+        title: 'Error!',
+        message: requestError,
+      };
+    }
+  
 
   return (
     <section className={classes.contact}>
@@ -118,7 +143,16 @@ function ContactForm() {
           <button>Send Message</button>
         </div>
       </form>
+      {/* 增加全局通知-上下文获取数据- 单个定义为true,同时赋值 */}
+      {notification && (
+        <Notification
+          status={notification.status}
+          title={notification.title}
+          message={notification.message}
+        />
+      )}
     </section>
   );
+}
 }
 export default ContactForm;

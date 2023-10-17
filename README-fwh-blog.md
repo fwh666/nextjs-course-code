@@ -34,6 +34,10 @@
 5. 添加全局通知:
     - 上下文形式内容.
     - Notification 全局通知UI
+    - ReactDOM.createPortal 的作用,以及Document.byid的功能
+
+6. _document.js设置全局样式
+    - 设置的包装体
 
 # 知识点:
 
