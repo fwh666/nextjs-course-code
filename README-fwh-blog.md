@@ -17,7 +17,15 @@
     - Head信息
     - 导航栏信息: 联系方式和post列表导航
     
-3. 
+3. posts文章处理
+    - 解析文章列表: 
+        - 从指定目录下获取文章数据,包含标题以及内部内容
+        - 用matter组件. react-markdown, gray-matter, react-syntax-hightlighter,组件等
+    - 解析文章数据: [slug].js 代表不同名字的文章
+        - getStaticProps函数: 提前获取数据,填充到组件的参数当中
+        - getStaticPath函数:
+    - 
+4. 
 
 # 知识点:
 
