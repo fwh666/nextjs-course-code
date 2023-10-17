@@ -7,17 +7,21 @@ function AllPostsPage(props) {
   return (
     <Fragment>
       <Head>
-        <title>all post</title>
-        <meta name="description" content="a list of all programing-realte" />
+        <title>All Posts</title>
+        <meta
+          name='description'
+          content='A list of all programming-related tutorials and posts!'
+        />
       </Head>
-      {/* posts的数据需要提前加载获取并传递 */}
-      <AllPosts post={props.posts} />
+      {/* fwh-注意属性参数拼写-posts的数据需要提前加载获取并传递 */}
+      <AllPosts posts={props.posts} />
     </Fragment>
   );
 }
 
 export function getStaticProps() {
   const allPosts = getAllPosts();
+
   return {
     props: {
       posts: allPosts,

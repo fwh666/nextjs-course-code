@@ -53,8 +53,8 @@ function ContactForm() {
   },[requestStatus]);
 
 
-  //表单处理
-  function sendMessageHandler(event) {
+  //表单处理-fwh-注意选择异步修饰
+ async function sendMessageHandler(event) {
     event.preventDefault();
   
     setRequestStatus('pending');
@@ -75,6 +75,7 @@ function ContactForm() {
       setRequestError(error.message);
       setRequestStatus('error');
     }
+  }
 
     //全局通知数据处理-不同状态赋值不同的消息通知
     let notification;
@@ -153,6 +154,5 @@ function ContactForm() {
       )}
     </section>
   );
-}
 }
 export default ContactForm;
