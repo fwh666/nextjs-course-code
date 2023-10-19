@@ -18,16 +18,23 @@
 
 # Next-auth使用解析:
 1. Provider:  import { Provider } from 'next-auth/client';
-    - 
+    - 登陆凭据 提供的方式, 也可以选择github等三方认证
+
 2. useSesson: import { useSession, signOut } from 'next-auth/client';
+    - 检测用户登陆状态的最好方法 
+    - 客户端获取登录态
+    - https://next-auth.js.org/getting-started/client#usesession
 
 3. signOut:
+    - 去除登录态
 
 4. getSession: 
+    - 客户端获取登陆态
 
 5. NextAuth: import NextAuth from 'next-auth';
 import Providers from 'next-auth/providers';
-    - 
+    - 更新会话功能:
+    -  https://next-auth.js.org/getting-started/client#usesession
 
 
 # 其他介绍
