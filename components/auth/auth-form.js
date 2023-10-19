@@ -5,8 +5,8 @@ import { useRouter } from "next/router";
 import classes from "./auth-form.module.css";
 //注册用户
 async function createUser(email, password) {
-  await fetch("/api/auth/signup", {
-    method: "POST",
+  const response = await fetch('/api/auth/signup', {
+    method: 'POST',
     body: JSON.stringify({ email, password }),
     headers: {
       "Content-Type": "application/json",
@@ -22,7 +22,7 @@ async function createUser(email, password) {
 }
 function AuthForm() {
   const [isLogin, setIsLogin] = useState(true);
-
+  const router = useRouter();
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
 
@@ -50,10 +50,13 @@ function AuthForm() {
         email: enteredEmail,
         password: enteredPassword,
       });
+      console.log('登录结果：',result);
       //是登陆态则结果成功-跳转个人资料页
       if (!result.error) {
         // set some auth state
         router.replace("/profile");
+      }else{
+        console.log(result.error);
       }
     } else {
       // 非登陆态 去注册接口
