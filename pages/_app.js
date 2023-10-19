@@ -1,11 +1,15 @@
-import Layout from '../components/layout/layout';
-import '../styles/globals.css';
+import { Provider } from "next-auth/client";
+import Layout from "../components/layout/layout";
+import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    //fwh-如何获取到session属性?
+    <Provider session={pageProps.session}>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </Provider>
   );
 }
 

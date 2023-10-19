@@ -1,10 +1,11 @@
 # 内容操作：
-1. 注册页面
+1. 注册页面 singup.js
 2. 登录页面
 3. 认证登录态
 4. 无效登录剔除session态
 5. 保护访问的路径和页面校验登录态
 6. 整合Next-auth 本地逻辑校验，后续可以通过三方Google其他模式
+
 
 
 # 功能页面：
@@ -13,6 +14,20 @@
 
 # 注意：
 1. 教程    "next-auth": "^3.4.2", 官方最新4.0+
+
+
+# Next-auth使用解析:
+1. Provider:  import { Provider } from 'next-auth/client';
+    - 
+2. useSesson: import { useSession, signOut } from 'next-auth/client';
+
+3. signOut:
+
+4. getSession: 
+
+5. NextAuth: import NextAuth from 'next-auth';
+import Providers from 'next-auth/providers';
+    - 
 
 
 # 其他介绍

@@ -26,6 +26,7 @@ function AuthForm() {
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
 
+  // 点击切换登陆和注册页面
   function switchAuthModeHandler() {
     setIsLogin((prevState) => !prevState);
   }
@@ -42,18 +43,20 @@ function AuthForm() {
     const enteredEmail = emailInputRef.current.value;
     const enteredPassword = passwordInputRef.current.value;
 
+    //采用自定义密码认证模式credentials 
     if (isLogin) {
       const result = await signIn("credentials", {
         redirect: false,
         email: enteredEmail,
         password: enteredPassword,
       });
-      //结果成功-跳转个人资料页
+      //是登陆态则结果成功-跳转个人资料页
       if (!result.error) {
         // set some auth state
         router.replace("/profile");
       }
     } else {
+      // 非登陆态 去注册接口
       try {
         const result = await createUser(enteredEmail, enteredPassword);
         console.log(result);
@@ -64,6 +67,7 @@ function AuthForm() {
   }
 
   return (
+    // 如果是login  调用登陆接口|| 调用注册接口
     <section className={classes.auth}>
       <h1>{isLogin ? "Login" : "Sign Up"}</h1>
       <form onSubmit={submitHandler}>

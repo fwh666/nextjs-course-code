@@ -17,6 +17,7 @@ export default NextAuth({
   providers: [
     Providers.Credentials({
       async authorize(credentials) {
+        // 链接自定义数据库, 查询登陆账号和密码匹配,  成功最终将数据放入session中
         const client = await connectToDatabase();
 
         const usersCollection = client.db().collection('users');
